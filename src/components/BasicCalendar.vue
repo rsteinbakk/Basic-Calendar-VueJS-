@@ -31,18 +31,18 @@
       <div class="dayname">Thu</div>
       <div class="dayname">Fri</div>
       <div class="dayname">Sat</div>
-      <div class="dayname">Son</div>
+      <div class="dayname">Sun</div>
       <div
         class="other-month-days cal-dates"
         v-for="(day, index) in lastMonthDays"
-        :key="index + 'beforeThisMonthDays'"
+        :key="index + 'lastMonthDays'"
       >
         {{ day }}
       </div>
       <div
         class="cal-dates"
         v-for="(day, index) in days"
-        :key="index + 'selectedMonthDays'"
+        :key="index + 'days'"
         :class="{ 'is-today': isToday(day.date) }"
       >
         {{ showDate(day.date) }}
@@ -50,7 +50,7 @@
       <div
         class="other-month-days cal-dates"
         v-for="(day, index) in nextMonthDays"
-        :key="index + 'afterThisMonthDays'"
+        :key="index + 'nextMonthDays'"
       >
         {{ day }}
       </div>
@@ -66,6 +66,8 @@ export default {
       today: new Date(),
       selectedDate: new Date(),
       selectedMonth: new Date().getMonth(),
+
+      // Days rendered in to arrays from methods
       lastMonthDays: [],
       days: [],
       nextMonthDays: [],
@@ -253,7 +255,7 @@ html {
   text-align: center;
 }
 .cal-seven .is-today {
-  background-color: rgb(138, 29, 29);
+  background-color: rgb(76, 112, 122);
   color: white;
 }
 .other-month-days {
@@ -272,21 +274,21 @@ button {
   height: 37px;
   padding: 10px 15px;
   color: white;
-  border: 1px solid rgb(138, 29, 29);
+  border: 1px solid rgb(45, 86, 97);
   border-radius: 5px;
-  background-color: rgb(138, 29, 29);
+  background-color: rgb(76, 112, 122);
   margin-right: 15px;
 }
 .arw-btn:hover,
 .today-button:hover {
-  border: 1px solid rgb(116, 20, 20);
-  background-color: rgb(163, 46, 46);
+  border: 1px solid rgb(45, 86, 97);
+  background-color: rgb(76, 112, 122);
 }
 .arw-btn {
   width: 40px;
   height: 37px;
-  border: 1px solid rgb(105, 20, 20);
-  background-color: rgb(138, 29, 29);
+  border: 1px solid rgb(45, 86, 97);
+  background-color: rgb(76, 112, 122);
 }
 .arw-btn:first-child {
   margin-left: 20px;
